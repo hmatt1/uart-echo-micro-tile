@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+PYTHONPATH="/home/matt/.local/circt/circt_core" PYTHON_GIL=0 exec /usr/local/bin/python3.14t -X gil=0 /home/matt/projects/vctx-lang/vctx-cli.py "$@"

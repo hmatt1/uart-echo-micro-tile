@@ -1,0 +1,7 @@
+[project]
+name = "my-project"
+
+[comptime]
+# Override safety limits for comptime evaluation (optional).
+# max_stmt_steps = 1000000
+# max_loop_iters = 1000000

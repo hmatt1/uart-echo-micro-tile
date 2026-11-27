@@ -1,0 +1,57 @@
+
+component UART_ECHO(
+    in rx_serial: u1,
+    in pause_tx: u1,
+    in send_hello: u1,
+    in baud_fast: u1,
+    in unused1: u1,
+    in unused2: u1,
+    in unused3: u1,
+    in unused4: u1,
+    out tx_serial: u1,
+    out fifo_count0: u1,
+    out fifo_count1: u1,
+    out fifo_count2: u1,
+    out fifo_full: u1,
+    out framing_err: u1,
+    out unused5: u1,
+    out unused6: u1
+) {
+
+
+    led0 := 1
+    led1 := 1
+    led2 := 1
+    led3 := 1
+    led4 := 1
+    led5 := 1
+    led6 := 1
+    led7 := 1
+}
+
+sim Echo1 {
+
+    wire b0: u1 = 0
+    wire b1: u1 = 0
+    wire b2: u1 = 0
+    wire b3: u1 = 0
+    wire b4: u1 = 0
+    wire b5: u1 = 0
+    wire b6: u1 = 0
+    wire b7: u1 = 0
+
+    wire l0: u1
+    wire l1: u1
+    wire l2: u1
+    wire l3: u1
+    wire l4: u1
+    wire l5: u1
+    wire l6: u1
+    wire l7: u1
+
+    UART_ECHO(b0, b1, b2, b3, b4, b5, b6, b7, 
+        l0, l1, l2, l3, l4, l5, l6, l7)
+
+    assert(l0 == 1, "led is on")
+}
+
