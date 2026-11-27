@@ -1,0 +1,26 @@
+
+
+component UartTx<CLKS_PER_BIT>(
+    in  start: u1,
+    in  data:  u8,
+    out tx:    u1,
+    out busy:  u1
+) {
+    tx := 1
+    busy := 1
+}
+
+
+sim TxSim {
+
+    wire s: u1 = 0
+    wire data: u8 = 0b1111_1111
+    wire tx: u1
+    wire busy: u1
+
+
+    UartTx<4>(s, data, tx, busy)
+
+    assert(tx == 1)
+    assert(busy == 1)
+}

@@ -1,5 +1,10 @@
 
-component UART_ECHO(
+comptime getClocksPerBit() -> Int {
+    return 217
+}
+
+
+component ECHO(
     in rx_serial: u1,
     in pause_tx: u1,
     in send_hello: u1,
@@ -19,14 +24,14 @@ component UART_ECHO(
 ) {
 
 
-    led0 := 1
-    led1 := 1
-    led2 := 1
-    led3 := 1
-    led4 := 1
-    led5 := 1
-    led6 := 1
-    led7 := 1
+    tx_serial := 1
+    fifo_count0 := 1
+    fifo_count1 := 1
+    fifo_count2 := 1
+    fifo_full := 1
+    framing_err := 1
+    unused5 := 1
+    unused6 := 1
 }
 
 sim Echo1 {
@@ -49,7 +54,7 @@ sim Echo1 {
     wire l6: u1
     wire l7: u1
 
-    UART_ECHO(b0, b1, b2, b3, b4, b5, b6, b7, 
+    ECHO(b0, b1, b2, b3, b4, b5, b6, b7, 
         l0, l1, l2, l3, l4, l5, l6, l7)
 
     assert(l0 == 1, "led is on")
